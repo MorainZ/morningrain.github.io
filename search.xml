@@ -3,6 +3,173 @@
   
     
     <entry>
+      <title><![CDATA[MarkDown学习笔记]]></title>
+      <url>/2017/09/16/markdown/</url>
+      <content type="html"><![CDATA[<h1 id="Markdown简介"><a href="#Markdown简介" class="headerlink" title="Markdown简介"></a>Markdown简介</h1><blockquote>
+<p>Markdown 是一种轻量级的「标记语言」，它的优点很多，目前也被越来越多的写作爱好者，撰稿者广泛使用。看到这里请不要被「标记」、「语言」所迷惑，Markdown 的语法十分简单。常用的标记符号也不超过十个，这种相对于更为复杂的HTML 标记语言来说，Markdown 可谓是十分轻量的，学习成本也不需要太多，且一旦熟悉这种语法规则，会有一劳永逸的效果。</p>
+</blockquote>
+<h2 id="为什么要用MarkDown"><a href="#为什么要用MarkDown" class="headerlink" title="为什么要用MarkDown"></a>为什么要用MarkDown</h2><p>有一天，想随便写点什么，就点开饱含密密麻麻操作的功能强大的<em>Word</em>，就想起论文的复杂格式，<br>发现短短的几句话就用.doc .docx承载实在太过大材小用，想用.txt又显得不够庄重，虽然在win系统里记事本是去格式神器。</p>
+<p>刚好这几天搭建了Hexo博客，与大多数大型同性社交网路都支持Markdown，例如github，简书，coding…….</p>
+<p>发现，在如今越来越标准化的互联网环境下，markdown甚至算是一套写作标准。在这几乎被MarkDown统治的环境下，<br>自身又不幸的算是半个程序猿，简直就没有拒绝的理由了…</p>
+<h2 id="工欲善其事，必先利其器"><a href="#工欲善其事，必先利其器" class="headerlink" title="工欲善其事，必先利其器"></a>工欲善其事，必先利其器</h2><h3 id="创作工具"><a href="#创作工具" class="headerlink" title="创作工具"></a>创作工具</h3><p>既然下定了决心学这一门「标记语言」，就要选择一把好用的武器。在Mac平台相较Win有更多的选择，例如：</p>
+<ul>
+<li><p><a href="https://www.typora.io/" target="_blank" rel="external">Typora</a>：如记事本一般简洁的操作，却可以书写标准MarkDown，犹如光头般清爽。</p>
+</li>
+<li><p><a href="http://www.bear-writer.com/" target="_blank" rel="external">Bear</a>:图标好评，界面好评，操作好评，设备之间互联性满分，收费差评。</p>
+</li>
+<li><p><a href="http://macdown.uranusjr.com/" target="_blank" rel="external">Macdown</a>:国产良心软件，免费开源，种草。</p>
+</li>
+</ul>
+<p>对比了很多编辑软件，最终我还是选择Github出品的<em>Atom</em>搭配插件<em>markdown preview</em>,享受充分的个性化以及实时显示。</p>
+<p>重要的是！</p>
+<p>适配<em>Window</em></p>
+<p>效果很棒</p>
+<p>参考教程：<a href="http://www.jianshu.com/p/ad3e737e5dc2" target="_blank" rel="external">Atom与markdown</a></p>
+<p>进入Atom后的操作快捷键：</p>
+<p>windows : <code>ctrl + shift + m</code></p>
+<p>mac : <code>command + shift + m</code></p>
+<h3 id="图床工具"><a href="#图床工具" class="headerlink" title="图床工具"></a>图床工具</h3><p>互联网时代，单纯的文字显得干枯，图片显得极其重要。<br>为了证明文章目标不是刊登在知音读者，就需要插一张图。</p>
+<p><img src="https://i.loli.net/2017/09/15/59bbedbf0632f.jpg" alt="IMG_1395.jpg"></p>
+<p>而选择恰当的图片又是区分专业论文和公众号搞笑推文的只要因素，所以要慎重。</p>
+<p>那么如何让本地图片可以显示在每一台设备？那就需要上传到云端，再以链接的方式添加到<em>md</em>文件中。就需要使用云床：</p>
+<ul>
+<li><p><a href="https://sm.ms/" target="_blank" rel="external">sm.ms</a>：网页版 sm.ms还有app版，可以将手机里的图片上传直接返回md格式，很是方便。</p>
+</li>
+<li><p><a href="http://weibotuchuang.sinaapp.com/" target="_blank" rel="external">围脖图床修复计划</a>：网页端插件 图片一拖即可。</p>
+</li>
+<li><p><a href="https://portal.qiniu.com/create" target="_blank" rel="external">七牛</a>：开发者云储存 极其稳定 就是靠谱。</p>
+</li>
+</ul>
+<h2 id="如何使用MarkDown？"><a href="#如何使用MarkDown？" class="headerlink" title="如何使用MarkDown？"></a>如何使用MarkDown？</h2><h3 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h3><p>代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"># 一级标题</div><div class="line">## 二级标题</div><div class="line">### 三级标题</div><div class="line">#### 四级标题</div><div class="line">##### 五级标题</div><div class="line">###### 六级标题</div></pre></td></tr></table></figure></p>
+<p>效果：</p>
+<h1 id="一级标题"><a href="#一级标题" class="headerlink" title="一级标题"></a>一级标题</h1><h2 id="二级标题"><a href="#二级标题" class="headerlink" title="二级标题"></a>二级标题</h2><h3 id="三级标题"><a href="#三级标题" class="headerlink" title="三级标题"></a>三级标题</h3><h4 id="四级标题"><a href="#四级标题" class="headerlink" title="四级标题"></a>四级标题</h4><h5 id="五级标题"><a href="#五级标题" class="headerlink" title="五级标题"></a>五级标题</h5><h6 id="六级标题"><a href="#六级标题" class="headerlink" title="六级标题"></a>六级标题</h6><h3 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h3><ul>
+<li>网页链接<ul>
+<li>内联<ul>
+<li>代码：<code>[百度](www.baidu.com)</code></li>
+<li>效果：</li>
+<li>这是一个<a href="www.baidu.com">百度</a>链接</li>
+</ul>
+</li>
+<li>引用<ul>
+<li>代码： <code>这是一个[百度][1]链接 + [1]:www.baidu.com</code></li>
+<li>效果：</li>
+<li>这是一个[百度][1]链接 适合同一网址多处引用</li>
+</ul>
+</li>
+<li>[1]: www.baidu.com/</li>
+</ul>
+</li>
+<li>图片链接<ul>
+<li>本地<ul>
+<li>代码：<code>![header](/Users/zhangchenyu/Downloads/IMG_1093.JPG)</code></li>
+<li>效果：<br><img src="/Users/zhangchenyu/Downloads/IMG_1093.JPG" alt="header"></li>
+</ul>
+</li>
+<li>内联<ul>
+<li>代码：<code>![header](https://ws3.sinaimg.cn/large/006tNc79gy1fjkpdl2ny4j30hs0hsdha.jpg)</code></li>
+<li>效果：</li>
+<li><img src="https://ws3.sinaimg.cn/large/006tNc79gy1fjkpdl2ny4j30hs0hsdha.jpg" alt="header"></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="强调"><a href="#强调" class="headerlink" title="强调"></a>强调</h3><ul>
+<li>正常</li>
+<li><code>*斜*</code>         <em>斜</em></li>
+<li><code>**粗**</code>      <strong>粗</strong></li>
+<li><code>***又粗又斜***</code>    <strong><em>又粗又斜</em></strong></li>
+<li><code>==划线==</code> <del>划线</del></li>
+<li><code>==划线==</code> <strong>划线</strong></li>
+</ul>
+<h3 id="分割线"><a href="#分割线" class="headerlink" title="分割线"></a>分割线</h3><p><em>*</em>、___（3个星号、减号、底线）</p>
+<p><code>***</code></p>
+<hr>
+<p><code>___</code></p>
+<hr>
+<h3 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h3><ul>
+<li><p>有序</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">0. 打开冰箱门</div><div class="line">1. 把大象塞进去</div><div class="line">4. 关上冰箱门</div></pre></td></tr></table></figure>
+<p>  效果：</p>
+<ol>
+<li>打开冰箱门</li>
+<li>关上冰箱门</li>
+<li>把大象塞进去</li>
+</ol>
+</li>
+</ul>
+<p>可以看出，有序列表的顺序与编号大小有关与内容无关</p>
+<ul>
+<li><p>无序</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">* 打开冰箱门</div><div class="line">    * 把大象塞进去</div><div class="line">        * 关上冰箱门</div></pre></td></tr></table></figure>
+<p>  效果：</p>
+<ul>
+<li>打开冰箱门<ul>
+<li>把大象塞进去<ul>
+<li>关上冰箱门<br>无序列表可以根据<code>Tab</code>键调整，并且 <code>* + -</code>三个符号效果相同。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>引用</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&gt; 打开冰箱门</div><div class="line">&gt;&gt; 把大象塞进去</div><div class="line">&gt;&gt;&gt; 关上冰箱门</div></pre></td></tr></table></figure>
+<p>  效果：</p>
+<blockquote>
+<p>打开冰箱门</p>
+<blockquote>
+<p>把大象塞进去</p>
+<blockquote>
+<p>关上冰箱门<br>引用列表与<code>Tab</code>键无关，与<code>&gt;</code>数量有关</p>
+<h3 id="代码区域"><a href="#代码区域" class="headerlink" title="代码区域"></a>代码区域</h3></blockquote>
+</blockquote>
+</blockquote>
+</li>
+</ul>
+<ul>
+<li><code>Tab</code>键缩进或连续空格</li>
+<li><code>&#39;</code>号或<code>~</code>对应一个一行代码 三个包括区域为代码区域<br>用python的头文件做示范<br>代码：<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">~~~</div><div class="line">#-*- coding:utf-8 -*-</div><div class="line">#! /usr/local/bin/python</div><div class="line">import sys</div><div class="line">reload(sys)</div><div class="line">sys.setdefaultencoding(&apos;utf8&apos;)</div><div class="line">~~~</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>效果：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">#-*- coding:utf-8 -*-</div><div class="line">#! /usr/local/bin/python</div><div class="line">import sys</div><div class="line">reload(sys)</div><div class="line">sys.setdefaultencoding(&apos;utf8&apos;)</div></pre></td></tr></table></figure></p>
+<h3 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">|第一列|第二列|第三列|</div><div class="line">|:-:|:-|-:|</div><div class="line">|第一列是居中的|第二列是居左的|第三列是居右的|</div></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">第一列</th>
+<th style="text-align:left">第二列</th>
+<th style="text-align:right">第三列</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">第一列是居中的</td>
+<td style="text-align:left">第二列是居左的</td>
+<td style="text-align:right">第三列是居右的</td>
+</tr>
+</tbody>
+</table>
+]]></content>
+      
+        <categories>
+            
+            <category> 编程 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 学习笔记 </tag>
+            
+            <tag> MarkDown </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[Hello World]]></title>
       <url>/2017/09/14/hello-world/</url>
       <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
