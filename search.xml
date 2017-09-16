@@ -6,9 +6,8 @@
       <title><![CDATA[MarkDown学习笔记（一）]]></title>
       <url>/2017/09/15/markdown/</url>
       <content type="html"><![CDATA[<h1 id="Markdown简介"><a href="#Markdown简介" class="headerlink" title="Markdown简介"></a>Markdown简介</h1><blockquote>
-<p>Markdown 是一种轻量级的「标记语言」，它的优点很多，目前也被越来越多的写作爱好者，撰稿者广泛使用。看到这里请不要被「标记」、「语言」所迷惑，Markdown 的语法十分简单。常用的标记符号也不超过十个，这种相对于更为复杂的HTML 标记语言来说，Markdown 可谓是十分轻量的，学习成本也不需要太多，且一旦熟悉这种语法规则，会有一劳永逸的效果。</p>
+<p>Markdown 是一种轻量级的「标记语言」，它的优点很多，目前也被越来越多的写作爱好者，撰稿者广泛使用。看到这里请不要被「标记」、「语言」所迷惑，Markdown 的语法十分简单。常用的标记符号也不超过十个，这种相对于更为复杂的HTML 标记语言来说，Markdown 可谓是十分轻量的，学习成本也不需要太多，且一旦熟悉这种语法规则，会有一劳永逸的效果。<br><img src="https://ws2.sinaimg.cn/large/006tNc79gy1fjllij94qvj31kw11x1l4.jpg" alt="dog"></p>
 </blockquote>
-<p><img src="https://ws2.sinaimg.cn/large/006tNc79gy1fjllij94qvj31kw11x1l4.jpg" alt="dog"></p>
 <a id="more"></a>
 <h1 id="为什么要用MarkDown"><a href="#为什么要用MarkDown" class="headerlink" title="为什么要用MarkDown"></a>为什么要用MarkDown</h1><p>有一天，想随便写点什么，就点开饱含密密麻麻操作的功能强大的<em>Word</em>，就想起论文的复杂格式，发现短短的几句话就用.doc .docx承载实在太过大材小用，想用.txt又显得不够庄重，虽然在win系统里记事本是去格式神器。</p>
 <p>刚好这几天搭建了Hexo博客，与大多数大型同性社交网路都支持Markdown，例如github，简书，coding…….</p>
