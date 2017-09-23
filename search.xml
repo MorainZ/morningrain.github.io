@@ -3,14 +3,15 @@
   
     
     <entry>
-      <title><![CDATA[【爬虫笔记】（二）]]></title>
+      <title><![CDATA[【爬虫笔记】ONE一个问题及文章爬取（二）]]></title>
       <url>/2017/09/23/spider2/</url>
       <content type="html"><![CDATA[<p><a href="http://wufazhuce.com/" target="_blank" rel="external">ONE一个</a>除了有一个<strong>ONE</strong>模块之外，另外还有<strong>ONE 文章</strong>,<strong>ONE 问题</strong>模块</p>
 <p>这篇笔记将会讲述如何爬取这两个模块。</p>
 <blockquote>
 <p>15年前，互联网是一个逃避现实的地方；现在，现实是一个可以逃避互联网的地方。<br><img src="http://image.wufazhuce.com/Fg65XUON_lAdwruagQVNRijVOvLC" alt=""></p>
-<p>From <a href="http://wufazhuce.com/" target="_blank" rel="external">ONE一个</a><br><a id="more"></a></p>
+<p>From <a href="http://wufazhuce.com/" target="_blank" rel="external">ONE一个</a></p>
 </blockquote>
+<a id="more"></a>
 <h2 id="获得文章链接列表"><a href="#获得文章链接列表" class="headerlink" title="获得文章链接列表"></a>获得文章链接列表</h2><p>继续上篇日记，依旧是利用chorme分析网页构成。</p>
 <p><img src="https://ws3.sinaimg.cn/large/006tNc79gy1fjtu2ylgqmj31kw0xpqpd.jpg" alt=""></p>
 <p>由图可看出，文章的主要内容并不在主页当中，需要点开链接跳转得到，我们需要得到每一篇文章的url，组成文章链接列表，再利用列表链接进行文章的爬取。</p>
@@ -208,8 +209,9 @@ if __name__ == &apos;__main__&apos;:
       <url>/2017/09/23/spider1/</url>
       <content type="html"><![CDATA[<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>曾经几时，<a href="http://wufazhuce.com/" target="_blank" rel="external">一个ONE</a> 席卷了各类青年的手机。<br>这款APP<br>每天发布的一句话，一张图<br>它顺应这个快速且碎片化的时代，<strong>快捷</strong>，<strong>简洁</strong><br>不同于各种味道的鸡汤<br>不同于质量参差不齐的散文<br>在ONE中，你不用去选择，每天的推送无感或者不喜欢就关闭软件，打动到内心就充其量截屏发个票圈  </p>
 <blockquote>
-<p>在其中<br>可能某个总结人生经验的一句话从而博得你的同感<br>无论是亲情友情或是爱情<br>可能在你某个失意时刻振奋你的生活<br>更加的努力和热爱生活<br>当然也可能让你更加明白现实以及负能量<br><img src="https://ws3.sinaimg.cn/large/006tNc79gy1fjtti6qzjdj31kw11xu0z.jpg" alt=""><br><a id="more"></a></p>
+<p>在其中<br>可能某个总结人生经验的一句话从而博得你的同感<br>无论是亲情友情或是爱情<br>可能在你某个失意时刻振奋你的生活<br>更加的努力和热爱生活<br>当然也可能让你更加明白现实以及负能量<br><img src="https://ws3.sinaimg.cn/large/006tNc79gy1fjtti6qzjdj31kw11xu0z.jpg" alt=""></p>
 </blockquote>
+<a id="more"></a>
 <p>或许每一个现在手机中还有这个APP的同学，还有一个向往文艺的心。</p>
 <h2 id="网页介绍"><a href="#网页介绍" class="headerlink" title="网页介绍"></a>网页介绍</h2><p><img src="https://ws4.sinaimg.cn/large/006tNc79gy1fjtmhxovymj31bi1cqqv5.jpg" alt="ONE一个"></p>
 <p>这个网页简洁到略显简陋，明显快被时代所抛弃。</p>
@@ -507,23 +509,6 @@ for dict in list:
             <tag> MarkDown </tag>
             
         </tags>
-        
-    </entry>
-    
-    <entry>
-      <title><![CDATA[Hello World]]></title>
-      <url>/2017/09/14/hello-world/</url>
-      <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-]]></content>
-      
         
     </entry>
     
