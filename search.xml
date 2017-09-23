@@ -3,13 +3,212 @@
   
     
     <entry>
-      <title><![CDATA[【爬虫】学习笔记（一）]]></title>
-      <url>/2017/09/23/spider1/</url>
-      <content type="html"><![CDATA[<h1 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h1><p><a href="http://wufazhuce.com/" target="_blank" rel="external">一个ONE</a></p>
-<p><a href="http://wufazhuce.com" target="_blank" rel="external">http://wufazhuce.com</a></p>
-<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>曾经几时，ONE一个 席卷了各类青年的手机。<br>这款APP<br>每天发布的一句话，一张图<br>它顺应这个快速且碎片化的时代，<strong>快捷</strong>，<strong>简洁</strong><br>不同于各种味道的鸡汤<br>不同于质量参差不齐的散文<br>在ONE中，你不用去选择，每天的推送无感或者不喜欢就关闭软件，打动到内心就充其量截屏发个票圈  </p>
+      <title><![CDATA[【爬虫笔记】（二）]]></title>
+      <url>/2017/09/23/spider2/</url>
+      <content type="html"><![CDATA[<p><a href="http://wufazhuce.com/" target="_blank" rel="external">ONE一个</a>除了有一个<strong>ONE</strong>模块之外，另外还有<strong>ONE 文章</strong>,<strong>ONE 问题</strong>模块</p>
+<p>这篇笔记将会讲述如何爬取这两个模块。</p>
 <blockquote>
-<p>在其中<br>可能某个总结人生经验的一句话从而博得你的同感<br>无论是亲情友情或是爱情<br>可能在你某个失意时刻振奋你的生活<br>更加的努力和热爱生活<br>当然也可能让你更加明白现实以及负能量  </p>
+<p>15年前，互联网是一个逃避现实的地方；现在，现实是一个可以逃避互联网的地方。<br><img src="http://image.wufazhuce.com/Fg65XUON_lAdwruagQVNRijVOvLC" alt=""></p>
+<p>From <a href="http://wufazhuce.com/" target="_blank" rel="external">ONE一个</a><br><a id="more"></a></p>
+</blockquote>
+<h2 id="获得文章链接列表"><a href="#获得文章链接列表" class="headerlink" title="获得文章链接列表"></a>获得文章链接列表</h2><p>继续上篇日记，依旧是利用chorme分析网页构成。</p>
+<p><img src="https://ws3.sinaimg.cn/large/006tNc79gy1fjtu2ylgqmj31kw0xpqpd.jpg" alt=""></p>
+<p>由图可看出，文章的主要内容并不在主页当中，需要点开链接跳转得到，我们需要得到每一篇文章的url，组成文章链接列表，再利用列表链接进行文章的爬取。</p>
+<p>而通过源代码，我们发现文章的链接都在类名为<em>fp-one-articulo</em>的<em>div</em>中，于是我们遍历该<em>div</em>中所有的<em>a</em>标签，再从标签中提取<em>url</em>。</p>
+<pre><code>def getArticlelist(page):
+    article_list = []
+    soup = BeautifulSoup(page, &apos;html.parser&apos;)
+    for i in soup.findAll(&apos;div&apos;,class_ =&apos;fp-one-articulo&apos;):
+        for j in i.find_all(&apos;a&apos;):
+            article_url = j[&apos;href&apos;]
+            article_list.append(article_url)
+    return article_list
+</code></pre><p>可以获得文章链接列表：</p>
+<pre><code>&apos;http://wufazhuce.com/article/2818&apos;, 
+&apos;http://wufazhuce.com/article/2819&apos;, 
+&apos;http://wufazhuce.com/article/2816&apos;, 
+&apos;http://wufazhuce.com/article/2810&apos;, 
+&apos;http://wufazhuce.com/article/2808&apos;, 
+&apos;http://wufazhuce.com/article/2815&apos;, 
+&apos;http://wufazhuce.com/article/2812&apos;
+</code></pre><h2 id="获得文章内容"><a href="#获得文章内容" class="headerlink" title="获得文章内容"></a>获得文章内容</h2><p>既然已经获得文章链接列表，接下来我们就需要遍历列表，对每一个链接进行解析，目标得到文章的作者，标题，内容。</p>
+<pre><code>def getArticle(list):
+    artlist = []
+    for url in list:
+        page_article = requests.get(url).content
+        soup = BeautifulSoup(page_article, &apos;html.parser&apos;)
+        title = soup.find_all(&apos;div&apos;,class_ = &apos;one-articulo&apos;)[0].h2.text
+        autor =  soup.find_all(&apos;div&apos;,class_ = &apos;one-articulo&apos;)[0].p.text
+        article = soup.find_all(&apos;div&apos;,class_ = &apos;one-articulo&apos;)[0].find_all(&apos;div&apos;,class_ = &apos;articulo-contenido&apos;)[0].text
+        data = {
+            &apos;title&apos;:title,
+            &apos;article&apos;:article,
+            &apos;autor&apos;:autor
+        }
+        artlist.append(data)
+    return artlist
+</code></pre><p>函数返回包含所有文章的标题，作者及内容的字典格式<br><img src="https://ws3.sinaimg.cn/large/006tNc79gy1fjtukxbjepj31kw0pkb29.jpg" alt=""></p>
+<h2 id="问题模块"><a href="#问题模块" class="headerlink" title="问题模块"></a>问题模块</h2><p>问题模块与上面文章模块没有明显差别，依旧先得到urllist，再对每一个url进行爬取。</p>
+<pre><code>def getQuestionlist(page):
+    question_list = []
+    soup = BeautifulSoup(page, &apos;html.parser&apos;)
+    for i in soup.findAll(&apos;div&apos;,class_ =&apos;fp-one-cuestion&apos;):
+        for j in i.find_all(&apos;a&apos;):
+            question_url = j[&apos;href&apos;]
+            question_list.append(question_url)
+    return question_list
+
+def getQuestion(list):
+    queslist = []
+    for url in list:
+        page_article = requests.get(url).content
+        soup = BeautifulSoup(page_article, &apos;html.parser&apos;)
+        question_title = soup.find_all(&apos;div&apos;,class_ = &apos;one-cuestion&apos;)[0].h4.text
+        question_brief = soup.find_all(&apos;div&apos;,class_ = &apos;cuestion-contenido&apos;)[0].text
+        question_content = soup.find_all(&apos;div&apos;,class_ = &apos;cuestion-contenido&apos;)[1].text
+        data = {
+            &apos;ques_title&apos;:question_title,
+            &apos;ques_brief&apos;:question_brief,
+            &apos;ques_content&apos;:question_content
+        }
+        queslist.append(data)
+    return queslist
+</code></pre><h2 id="集合字典"><a href="#集合字典" class="headerlink" title="集合字典"></a>集合字典</h2><p>上文中，我们分别获得了<strong>ONE</strong>模块，<strong>ONE 文章</strong>模块,<strong>ONE 问题</strong>模块的字典列表,那么我们如何将三个字典集合为一个字典对象呢？</p>
+<pre><code>for one,art,ques in zip(one_dict,article_dict,question_dict):
+    dic = {}
+    dic.update(one)
+    dic.update(art)
+    dic.update(ques)
+    dict_list.append(dic)
+for dict in dict_list:
+    for key in dict:
+        print key, &apos;：&apos;, dict[key]  
+</code></pre><p>我们就获得最终的dict_list数据列表。</p>
+<h2 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h2><pre><code>#!/usr/bin/python
+# -*- coding: utf-8 -*-
+
+import requests
+from bs4 import BeautifulSoup
+
+def getPage(url):
+    return requests.get(url).content
+
+def getOne(page):
+    list = []
+    soup = BeautifulSoup(page, &apos;html.parser&apos;)
+    for i in soup.find_all(&apos;div&apos;,class_ = &apos;item&apos;):
+        # image = i.a.img[&apos;src&apos;]
+        onelist = i.find_all(&apos;a&apos;)
+        image = onelist[0].img[&apos;src&apos;]
+        word = onelist[1].text
+        infolist = i.find_all(&apos;p&apos;)
+        id = infolist[0].text
+        date = infolist[1].text+&apos; &apos;+infolist[2].text
+        data = {
+            &apos;image&apos;:image,
+            &apos;word&apos;:word,
+            &apos;id&apos;:id,
+            &apos;date&apos;:date
+        }
+        list.append(data)
+    return list
+
+def getArticlelist(page):
+    article_list = []
+    soup = BeautifulSoup(page, &apos;html.parser&apos;)
+    for i in soup.findAll(&apos;div&apos;,class_ =&apos;fp-one-articulo&apos;):
+        for j in i.find_all(&apos;a&apos;):
+            article_url = j[&apos;href&apos;]
+            article_list.append(article_url)
+    return article_list
+
+def getQuestionlist(page):
+    question_list = []
+    soup = BeautifulSoup(page, &apos;html.parser&apos;)
+    for i in soup.findAll(&apos;div&apos;,class_ =&apos;fp-one-cuestion&apos;):
+        for j in i.find_all(&apos;a&apos;):
+            question_url = j[&apos;href&apos;]
+            question_list.append(question_url)
+    return question_list
+
+def getArticle(list):
+    artlist = []
+    for url in list:
+        page_article = requests.get(url).content
+        soup = BeautifulSoup(page_article, &apos;html.parser&apos;)
+        title = soup.find_all(&apos;div&apos;,class_ = &apos;one-articulo&apos;)[0].h2.text
+        autor =  soup.find_all(&apos;div&apos;,class_ = &apos;one-articulo&apos;)[0].p.text
+        article = soup.find_all(&apos;div&apos;,class_ = &apos;one-articulo&apos;)[0].find_all(&apos;div&apos;,class_ = &apos;articulo-contenido&apos;)[0].text
+        data = {
+            &apos;title&apos;:title,
+            &apos;article&apos;:article,
+            &apos;autor&apos;:autor
+        }
+        artlist.append(data)
+    return artlist
+
+def getQuestion(list):
+    queslist = []
+    for url in list:
+        page_article = requests.get(url).content
+        soup = BeautifulSoup(page_article, &apos;html.parser&apos;)
+        question_title = soup.find_all(&apos;div&apos;,class_ = &apos;one-cuestion&apos;)[0].h4.text
+        question_brief = soup.find_all(&apos;div&apos;,class_ = &apos;cuestion-contenido&apos;)[0].text
+        question_content = soup.find_all(&apos;div&apos;,class_ = &apos;cuestion-contenido&apos;)[1].text
+        data = {
+            &apos;ques_title&apos;:question_title,
+            &apos;ques_brief&apos;:question_brief,
+            &apos;ques_content&apos;:question_content
+        }
+        queslist.append(data)
+    return queslist
+
+
+if __name__ == &apos;__main__&apos;:
+    url = &quot;http://www.wufazhuce.com/&quot;
+    dict_list = []
+    one_page = getPage(url)
+    one_dict = getOne(one_page)
+    article_list = getArticlelist(one_page)
+    article_dict = getArticle(article_list)
+    question_list = getQuestionlist(one_page)
+    question_dict = getQuestion(question_list)
+    for one,art,ques in zip(one_dict,article_dict,question_dict):
+        dic = {}
+        dic.update(one)
+        dic.update(art)
+        dic.update(ques)
+        dict_list.append(dic)
+    for dict in dict_list:
+        for key in dict:
+            print key, &apos;：&apos;, dict[key]
+</code></pre><h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>虽然解决了模块内容问题，但是数据少依旧是一个问题。<a href="http://wufazhuce.com/" target="_blank" rel="external">ONE一个</a>网站只开放了七天的数据，如何获得更多的数据，甚至是一年的数据呢？这么大的数据如何保存呢？</p>
+<p>问题有待解决……</p>
+]]></content>
+      
+        <categories>
+            
+            <category> 编程 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 学习笔记 </tag>
+            
+            <tag> Python爬虫 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[【爬虫笔记】爬取ONE一个文字及图片（一）]]></title>
+      <url>/2017/09/23/spider1/</url>
+      <content type="html"><![CDATA[<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>曾经几时，<a href="http://wufazhuce.com/" target="_blank" rel="external">一个ONE</a> 席卷了各类青年的手机。<br>这款APP<br>每天发布的一句话，一张图<br>它顺应这个快速且碎片化的时代，<strong>快捷</strong>，<strong>简洁</strong><br>不同于各种味道的鸡汤<br>不同于质量参差不齐的散文<br>在ONE中，你不用去选择，每天的推送无感或者不喜欢就关闭软件，打动到内心就充其量截屏发个票圈  </p>
+<blockquote>
+<p>在其中<br>可能某个总结人生经验的一句话从而博得你的同感<br>无论是亲情友情或是爱情<br>可能在你某个失意时刻振奋你的生活<br>更加的努力和热爱生活<br>当然也可能让你更加明白现实以及负能量<br><img src="https://ws3.sinaimg.cn/large/006tNc79gy1fjtti6qzjdj31kw11xu0z.jpg" alt=""><br><a id="more"></a></p>
 </blockquote>
 <p>或许每一个现在手机中还有这个APP的同学，还有一个向往文艺的心。</p>
 <h2 id="网页介绍"><a href="#网页介绍" class="headerlink" title="网页介绍"></a>网页介绍</h2><p><img src="https://ws4.sinaimg.cn/large/006tNc79gy1fjtmhxovymj31bi1cqqv5.jpg" alt="ONE一个"></p>
@@ -83,9 +282,9 @@ for dict in list:
         
         <tags>
             
-            <tag> Python爬虫 </tag>
-            
             <tag> 学习笔记 </tag>
+            
+            <tag> Python爬虫 </tag>
             
         </tags>
         
