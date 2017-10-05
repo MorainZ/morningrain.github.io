@@ -318,7 +318,8 @@ for dict in list:
 <p>进入Atom后的操作快捷键：</p>
 <p>windows : <code>ctrl + shift + m</code></p>
 <p>mac : <code>command + shift + m</code></p>
-<h2 id="图床工具"><a href="#图床工具" class="headerlink" title="图床工具"></a>图床工具</h2><p>互联网时代，单纯的文字显得干枯，图片显得极其重要。<br>为了证明文章目标不是刊登在知音读者，就需要插一张图。</p>
+<h2 id="图床工具"><a href="#图床工具" class="headerlink" title="图床工具"></a>图床工具</h2><p>互联网时代，单纯的文字显得干枯，图片显得极其重要。</p>
+<p>为了证明文章目标不是刊登在知音读者，就需要插一张图。</p>
 <p><img src="https://i.loli.net/2017/09/15/59bbedbf0632f.jpg" alt="IMG_1395.jpg"></p>
 <p>而选择恰当的图片又是区分专业论文和公众号搞笑推文的只要因素，所以要慎重。</p>
 <p>那么如何让本地图片可以显示在每一台设备？那就需要上传到云端，再以链接的方式添加到<em>.md</em>文件中。</p>
